@@ -8,9 +8,14 @@
 .quiz_box.active{
      opacity: 1;
      pointer-events: auto;
+
+     transform: translate(-50%,-50%) scale(1);
+
 }
 .quiz_box{
      width: 550px;
+     transition: all 0.3s ease;
+     transform: translate(-50%,-50%) scale(0.7);
 
      opacity: 0;
      pointer-events: none;
@@ -51,4 +56,16 @@
      color: #721c24;
      background-color: #f8d7da;
 }
+
+/* Button css */
+ .next_btn{
+     color: white;
+     background-color: #1D5D9B;
+     border: 1px solid #1D5D9B;
+ }
+ .next_btn:hover{
+     color: white;
+     background-color: #2980d6;
+
+ }
 
