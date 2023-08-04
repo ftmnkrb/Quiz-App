@@ -11,6 +11,7 @@ const ui = new UI();
 ui.btn_start.addEventListener("click", function() {
           ui.quiz_box.classList.add("active");
           startTimer(10);
+          startTimerLine();
           ui.soruGoster(quiz.soruGetir());
           ui.soruSayisiniGoster(quiz.soruIndex + 1, quiz.sorular.length);
           ui.btn_next.classList.remove("show");
@@ -25,7 +26,9 @@ ui.btn_next.addEventListener("click", function() {
           
           quiz.soruIndex += 1;
           clearInterval(counter);
+          clearInterval(counterLine);
           startTimer(10);
+          startTimerLine();
           ui.soruGoster(quiz.soruGetir());
           ui.soruSayisiniGoster(quiz.soruIndex + 1, quiz.sorular.length);
 
@@ -88,7 +91,7 @@ ui.btn_replay.addEventListener("click", function() {
  }); 
 
 
-
+let counter;
 function startTimer(time){
      counter = setInterval(timer, 1000); //timer fonksiyonunu saniyede 1 çağırmak için zamanlayıcı başlatır.
 
@@ -113,4 +116,21 @@ function startTimer(time){
      }
 }
 
+let counterLine;
+function startTimerLine(){
+     let line_width = 0;
+
+     counterLine = setInterval(timer, 20);
+
+     function timer(){
+          line_width += 1;
+          ui.time_line.style.width = line_width + "px";
+
+          if(line_width > 549){
+               clearInterval(counterLine);
+          }
+
+     }
+ 
+}
 
